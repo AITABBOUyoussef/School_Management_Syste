@@ -45,13 +45,3 @@ CREATE TABLE students (
 );
 
 
-CREATE TABLE enrollments (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    student_id INT NOT NULL,
-    course_id INT NOT NULL,
-    enrolled_at DATE NOT NULL,
-    status ENUM('Actif', 'Terminé') DEFAULT 'Actif',
-    FOREIGN KEY (student_id) REFERENCES students(id) ON DELETE CASCADE,
-    FOREIGN KEY (course_id) REFERENCES courses(id) ON DELETE CASCADE,
-    UNIQUE(student_id, course_id)
-);
